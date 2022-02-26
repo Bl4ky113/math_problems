@@ -1,6 +1,14 @@
 
 from random import randint
 
+def find_possible_groups (num_element_per_group=2, element_arr=[], possible_elements_groups_arr=[]):
+    for element_i in element_arr:
+        used_index = [element_arr.index(element_i)]
+
+        for num in element_arr:
+            group = create_group(element_arr, num_element_per_group, used_index)
+            check_group(possible_elements_groups_arr, group)
+
 def create_group (element_arr=[], size_group=2, used_elements_index=[]):
     created_group = [element_arr[used_elements_index[0]]]
 
@@ -24,25 +32,16 @@ def check_group (checked_group=[], to_check_group=[]):
         checked_group.append(to_check_group)
 
 def main ():
-    num_group = randint(3, 3)
-    num_arr = [i for i in range(randint(5, 5))]
+    num_group = randint(2, 5)
+    num_arr = [i + 1 for i in range(randint(5, 12))]
     possible_groups_arr = []
 
-    print(num_arr)
-    print(num_group)
+    print(f'list: {num_arr}, l:{len(num_arr)}')
+    print(f'group number: {num_group}')
 
-    for num_i in num_arr:
-        used_index = [num_arr.index(num_i)]
+    find_possible_groups(num_group, num_arr, possible_groups_arr)
 
-        for num in num_arr:
-            group = create_group(num_arr, num_group, used_index)
-            check_group(possible_groups_arr, group)
-
-            print("i: ", used_index)
-            print("g: ", group)
-
-    print(possible_groups_arr)
-            
+    print(f'{possible_groups_arr}, l:{len(possible_groups_arr)}') 
 
 if __name__ == "__main__":
     main()
