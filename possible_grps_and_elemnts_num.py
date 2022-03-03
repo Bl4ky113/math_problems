@@ -20,8 +20,12 @@ def main ():
         x=len_element_arr,
         y=len_possible_groups
     )
+    
+    print("Init figure")
 
     fig.show()
+
+    print("Show Figure")
 
 if __name__ == "__main__":
     main()
