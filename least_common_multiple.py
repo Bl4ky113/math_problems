@@ -1,5 +1,7 @@
 # Made By Bl4ky
 
+from number_factors import get_prime_numbers, get_factors
+
 def least_common_multiple_multiples(len_numbers=2, multiples=[]):
     iterations = 0
 
@@ -20,24 +22,11 @@ def least_common_multiple_multiples(len_numbers=2, multiples=[]):
             return iterations
 
 def least_common_multiple_factors(multiples=[], used_factors=[]):
-    factors_arr = [7, 5, 3, 2]
-    multiples_factors = multiples
+    primes_arr = get_prime_numbers(max(multiples))
+    factors = get_factors(multiples, primes_arr)
+    iterations = 1
 
-    for factor in factors_arr:
-        add_factor = False
+    for factor in factors:
+        iterations *= factor
 
-        for i in range(len(multiples_factors)):
-            if multiples_factors[i] % factor == 0:
-                multiples_factors[i] /= factor
-                add_factor = True
-
-        if add_factor:
-            used_factors.append(factor)
-
-    if sum(multiples_factors) == len(multiples_factors):
-        iterations = 1
-        for factor in used_factors:
-            iterations *= factor
-        return iterations
-
-    return least_common_multiple_factors(multiples_factors, used_factors)
+    return iterations
