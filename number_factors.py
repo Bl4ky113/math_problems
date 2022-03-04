@@ -34,10 +34,11 @@ def get_prime_numbers(range_numbers=100):
     return prime_numbers
 
 def main():
-    prime_numbers = get_prime_numbers(6)
-    factors = get_factors([6], prime_numbers)
+    num = 8
+    prime_numbers = get_prime_numbers(num)
+    factors = get_factors([num], prime_numbers)
     print(prime_numbers)
-    print(factors, 6)
+    print(factors, num)
 
 if __name__ == "__main__":
     main()
