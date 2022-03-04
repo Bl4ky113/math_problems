@@ -1,24 +1,6 @@
 # Made By Bl4ky
 
-def minimun_common_multiple_multiples(len_numbers=2, multiples=[]):
-    iterations = 0
-
-    while True:
-        break_loop = True
-        iteration_is_multiple = [False for i in range(len_numbers)]
-        iterations += 1
-
-        for i in range(len_numbers):
-            if iterations % multiples[i] == 0:
-                iteration_is_multiple[i] = True
-
-        for iteration_multiple in iteration_is_multiple:
-            if iteration_multiple == False:
-                break_loop = False
-
-        if iterations > 1000 or break_loop:
-            return iterations
-
+from least_common_multiple import least_common_multiple_multiples, least_common_multiple_factors
 
 def calc_date(current_date=1, range_date=1, restart_count=24):
     date = current_date
@@ -85,7 +67,7 @@ def main():
     person = "Juan"
 
     multiples_arr = get_values_from_obj_in_arr(medicines, "each_hour")
-    iterations = minimun_common_multiple_multiples(len(medicines), multiples_arr)
+    iterations = least_common_multiple_factors(multiples_arr)
 
     days_passed = iterations // 24
     hours_passed = iterations % 24
