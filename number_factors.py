@@ -36,7 +36,7 @@ def get_prime_numbers(range_numbers=100):
 def main():
     num = 8
     prime_numbers = get_prime_numbers(num)
-    factors = get_factors([num], prime_numbers)
+    factors = get_factors([num], prime_numbers, [])
     print(prime_numbers)
     print(factors, num)
 

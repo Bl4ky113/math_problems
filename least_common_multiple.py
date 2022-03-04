@@ -23,7 +23,7 @@ def least_common_multiple_multiples(len_numbers=2, multiples=[]):
 
 def least_common_multiple_factors(multiples=[], used_factors=[]):
     primes_arr = get_prime_numbers(max(multiples))
-    factors = get_factors(multiples, primes_arr)
+    factors = get_factors(multiples, primes_arr, [])
     iterations = 1
 
     for factor in factors:

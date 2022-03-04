@@ -30,16 +30,37 @@ def greater_common_divisor_factors(num_arr=[]):
 
     return greater_divisor
 
-def greater_common_divisor_euclid_sub():
-    pass
+def greater_common_divisor_euclid_sub(data_arr=[]):
+    if len(data_arr) > 2:
+        return 0
 
-def greater_common_divisor_euclid_mod():
-    pass
+    num_arr = data_arr.copy()
+    while num_arr[0] != num_arr[1]:
+        num_arr.sort()
+        num_arr[1] -= num_arr[0]
+        print(num_arr)
+
+    return num_arr[0]
+
+def greater_common_divisor_euclid_mod(data_arr=[]):
+    if len(data_arr) > 2:
+        return 0
+
+    num_arr = data_arr.copy()
+    while num_arr[0] != 0:
+        try:
+            num_arr.sort()
+            num_arr[1] %= num_arr[0]
+            print(num_arr)
+        except ZeroDivisionError:
+            break
+
+    return num_arr[1]
 
 def main():
-    nums = [18, 48]
+    nums = [48, 18]
 
-    greater_divisor = greater_common_divisor_factors(nums)
+    greater_divisor = greater_common_divisor_euclid_mod(nums)
     print(f"gcd({nums}) = {greater_divisor}")
 
 if __name__ == "__main__":
