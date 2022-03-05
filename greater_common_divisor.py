@@ -38,7 +38,6 @@ def greater_common_divisor_euclid_sub(data_arr=[]):
     while num_arr[0] != num_arr[1]:
         num_arr.sort()
         num_arr[1] -= num_arr[0]
-        print(num_arr)
 
     return num_arr[0]
 
@@ -51,14 +50,13 @@ def greater_common_divisor_euclid_mod(data_arr=[]):
         try:
             num_arr.sort()
             num_arr[1] %= num_arr[0]
-            print(num_arr)
         except ZeroDivisionError:
             break
 
     return num_arr[1]
 
 def main():
-    nums = [48, 18]
+    nums = [72, 78]
 
     greater_divisor = greater_common_divisor_euclid_mod(nums)
     print(f"gcd({nums}) = {greater_divisor}")
